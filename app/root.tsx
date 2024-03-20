@@ -6,6 +6,13 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 
+import enTranslations from "@shopify/polaris/locales/en.json";
+import { AppProvider } from "@shopify/polaris";
+
+//Load bootstrap and Polaris styles
+import "@shopify/polaris/build/esm/styles.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
@@ -25,5 +32,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  return (
+    <AppProvider i18n={enTranslations}>
+      <Outlet />
+    </AppProvider>
+  );
 }
