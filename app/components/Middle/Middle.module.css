@@ -1,0 +1,11 @@
+.middleSection {
+  width: 100%;
+  border: 1px solid rgb(201, 193, 193);
+  padding: 10px;
+}
+
+@media (min-width: 768px) {
+  .middleSection {
+    width: 50%;
+  }
+}
