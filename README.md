@@ -50,7 +50,7 @@ $ npm run dev
 
 If you open the browser in the port indicated by Remix usually the 5173, you should see the Dashboard or Home page:
 
-![image](https://github.com/ser0125/RevenueHunt-Editor/assets/11180036/b0735220-5185-4d14-8c16-f42748ea260f)
+![image](https://github.com/ser0125/RevenueHunt-Editor/assets/11180036/a1f64e23-ae6d-4ddb-84e0-68010dc38edd)
 
 
 ### How it works
