@@ -1,0 +1,17 @@
+.backBtn {
+  border: none;
+}
+
+/* Media query for screens smaller than or equal to 768px width (typical tablets and mobile devices) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .rightSection {
+    width: 50%;
+  }
+}
+
+/* Media query for screens larger than 1024px width (typical large desktops) */
+@media (min-width: 1025px) {
+  .rightSection {
+    width: 35.5%;
+  }
+}

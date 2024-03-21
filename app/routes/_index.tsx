@@ -1,9 +1,11 @@
 import type { MetaFunction } from "@remix-run/node";
-import { Layout, Page } from "@shopify/polaris";
+import { Page } from "@shopify/polaris";
 import { useState } from "react";
 import LeftColumn from "~/components/LeftColumn/LeftColumn";
 import Middle from "~/components/Middle/Middle";
 import RightColumn from "~/components/RightColumn/RightColumn";
+import styles from "../index.module.css";
+import useWindowDimensions from "~/hooks/useWindowDimensions";
 
 export const meta: MetaFunction = () => {
   return [
@@ -13,7 +15,12 @@ export const meta: MetaFunction = () => {
 };
 
 export default function Index() {
+  const [showPolaris, setShowPolaris] = useState<boolean>(false);
   const [inputStyles, setInputStyles] = useState<string>("");
+
+  const { width } = useWindowDimensions();
+
+  const smallScreen = width < 1024;
 
   const handleInputChange = (e: string | undefined) => {
     setInputStyles(e ?? "");
@@ -21,20 +28,25 @@ export default function Index() {
 
   return (
     <Page fullWidth>
-      <Layout>
-        <Layout.Section variant="oneThird">
-          <LeftColumn />
-        </Layout.Section>
-        <Layout.Section variant="oneThird">
-          <Middle inputStyles={inputStyles} />
-        </Layout.Section>
-        <Layout.Section variant="oneThird">
-          <RightColumn
-            inputStyles={inputStyles}
-            handleInputChange={handleInputChange}
-          />
-        </Layout.Section>
-      </Layout>
+      <div
+        className={`${styles.container} ${
+          showPolaris ? styles.containerReverse : ""
+        }`}
+      >
+        <LeftColumn
+          smallScreen={smallScreen}
+          setShowPolaris={setShowPolaris}
+          showPolaris={showPolaris}
+        />
+        <Middle inputStyles={inputStyles} />
+        <RightColumn
+          smallScreen={smallScreen}
+          setShowPolaris={setShowPolaris}
+          showPolaris={showPolaris}
+          inputStyles={inputStyles}
+          handleInputChange={handleInputChange}
+        />
+      </div>
     </Page>
   );
 }

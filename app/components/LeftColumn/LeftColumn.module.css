@@ -1,0 +1,20 @@
+.leftSection {
+  width: 100%;
+  border: 1px solid rgb(201, 193, 193);
+  padding: 10px;
+  margin: 5px;
+  display: block;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .leftSection {
+    width: 50%;
+  }
+}
+
+/* Media query for screens larger than 1024px width (typical large desktops) */
+@media (min-width: 1025px) {
+  .leftSection {
+    width: 15.5%;
+  }
+}
